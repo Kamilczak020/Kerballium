@@ -1,0 +1,13 @@
+.footer {
+    width: 100%;
+    height: 250px;
+
+    background-color: #222222;
+}
+
+.footer::before {
+    height: 2px;
+    display: block;
+    content: '';
+    background-image: linear-gradient(45deg, rgb(92, 66, 238) 10%, rgb(143, 39, 228) 90%) !important;
+}

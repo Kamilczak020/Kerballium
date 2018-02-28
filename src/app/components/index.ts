@@ -1,2 +1,3 @@
 export { Header } from './Header/header';
-export { SideDrawer } from './SideDrawer/sideDrawer';
+export { SideToolbar } from './SideToolbar/sideToolbar';
+export { Footer } from './Footer/footer';

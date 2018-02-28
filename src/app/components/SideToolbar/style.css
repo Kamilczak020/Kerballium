@@ -1,0 +1,21 @@
+.toolbar {
+    width: 100px;
+    padding: 0 !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background-color: #383838;
+}
+
+.divider {
+    width: 70%;
+    background-color: #6d6d6d !important;
+}
+
+.toolbarIcon {
+    color: #6d6d6d;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
