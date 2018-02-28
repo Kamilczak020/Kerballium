@@ -4,7 +4,8 @@ import { inject, observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import { RouterStore } from '../../stores';
 import { STORE_ROUTER } from '../../constants/stores';
-import { Header, SideDrawer } from '../../components';
+import { Header, Footer, SideToolbar } from '../../components';
+import { Button } from 'material-ui';
 
 @inject(STORE_ROUTER)
 @observer
@@ -14,8 +15,12 @@ export class KerballiumApp extends React.Component {
             <div className={style.appContainer}>
                 <Header />
                 <div className={style.appContent}>
-                    <SideDrawer />
+                    <div className={style.placeholder}>
+                        <Button />
+                    </div>
+                    <SideToolbar />
                 </div>
+                <Footer />
             </div>
         );
     }
