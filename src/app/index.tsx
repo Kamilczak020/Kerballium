@@ -5,18 +5,22 @@ import { Provider } from 'mobx-react';
 import { createBrowserHistory } from 'history';
 import { Router, Route, Switch } from 'react-router';
 import { Root } from './containers/Root';
-import { RouterStore } from './stores/RouterStore';
-import { STORE_ROUTER } from './constants/stores';
+import { RouterStore, UIStore } from './stores';
+import { UIModel } from './models';
+import { STORE_ROUTER, STORE_UI } from './constants/stores';
 import { KerballiumApp } from './containers/KerballiumApp';
 
 // Enable mobx strict mode
 useStrict(true);
 
 const history = createBrowserHistory();
+
 const routerStore = new RouterStore(history);
+const uiStore = new UIStore(new UIModel());
 
 const rootStores = {
     [STORE_ROUTER]: routerStore,
+    [STORE_UI]: uiStore,
 };
 
 // render react DOM
