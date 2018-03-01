@@ -1,0 +1,14 @@
+.sideDrawer {
+    overflow: hidden;
+    position: relative;
+    right: -100%;
+
+    height: 100%;
+
+    background-color: blue;
+    transition-duration: 0.5s;
+}
+
+.drawerExtended {
+    right: 0;
+}

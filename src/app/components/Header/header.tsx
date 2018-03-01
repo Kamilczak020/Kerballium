@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as style from './style.css';
 import { getTheme } from '../../themes/theme';
 import { AppBar, Toolbar, IconButton } from 'material-ui';
-import { GalaxyIcon } from '../../constants/icons/GalaxyIcon';
+import { GalaxyIcon } from '../../components/icons';
 import { MuiThemeProvider } from 'material-ui/styles';
 import { red } from 'material-ui/colors';
 import Typography from 'material-ui/Typography/Typography';
