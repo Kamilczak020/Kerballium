@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as style from './style.css';
 import * as classNames from 'classnames';
-import { getTheme } from '../../themes/theme';
 import { Drawer, Divider, IconButton, Toolbar } from 'material-ui';
 import { ToolboxElement } from '../ToolboxElement/ToolboxElement';
 import { SatelliteIcon, RocketIcon, PlanetIcon } from '../../components/icons';

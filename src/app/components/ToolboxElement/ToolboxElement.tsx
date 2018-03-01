@@ -1,10 +1,9 @@
 import * as React from 'react';
 import * as style from './style.css';
-import * as classNames from 'classnames/bind';
-import { Paper, Typography } from 'material-ui';
-
-// Bind our classnames and styles
-const cx = classNames.bind(style);
+import { Typography } from 'material-ui';
+import { STORE_UI } from '../../constants/stores';
+import { UIStore } from '../../stores';
+import { inject, observer } from 'mobx-react';
 
 export interface ToolboxElementProps {
     className?: string;
@@ -12,36 +11,33 @@ export interface ToolboxElementProps {
 }
 
 export interface ToolboxElementState {
-    extended: boolean;
+    toggle: boolean;
 }
 
+@inject(STORE_UI)
+@observer
 export class ToolboxElement extends React.Component<ToolboxElementProps, ToolboxElementState> {
     constructor(props: ToolboxElementProps, context: ToolboxElementState) {
         super(props, context);
 
         this.state = {
-            extended: false,
+            toggle: false,
         };
     }
 
-    private mouseEnter(): void {
-        this.setState({
-            extended: true,
-        });
-    }
+    private toggle(): void {
+        const storeUi = this.props[STORE_UI] as UIStore;
+        storeUi.toggleDrawer();
 
-    private mouseLeave(): void {
         this.setState({
-            extended: false,
+            toggle: !this.state.toggle,
         });
     }
 
     public render() {
-        const classes = cx({ 'toolboxElement': true, 'elementExtended': this.state.extended });
-        const textClasses = cx({'toolboxText': true, 'textHidden': !this.state.extended });
         return (
-            <div className={classes} onMouseEnter={() => this.mouseEnter()} onMouseLeave={() => this.mouseLeave()}>
-                <Typography className={textClasses}>
+            <div className={style.toolboxElement} onClick={() => this.toggle()}>
+                <Typography className={style.toolboxText}>
                     {this.props.text}
                 </Typography>
                 <div className={style.iconWrapper}>

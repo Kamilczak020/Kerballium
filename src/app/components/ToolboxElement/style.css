@@ -13,15 +13,7 @@
 }
 
 .toolboxText {
-    flex: 1;
-    align-self: center;
-    justify-self: flex-start;
-
-    padding-left: 10px;
-
-    color: #6d6d6d !important;
-    font-family: 'Orbitron', sans-serif !important;
-    font-size: 18px !important;
+    display: none !important;
 }
 
 .iconWrapper {
@@ -36,7 +28,7 @@
     transition-duration: 0s !important;
 }
 
-.elementExtended {
+.toolboxElement:hover {
     color:rgb(143, 39, 228);
     position: relative;
     width: 300px;
@@ -46,6 +38,19 @@
     right: calc(50% + 51px);
 }
 
-.textHidden {
-    display: none !important;
+.toolboxElement:hover .toolboxText {
+    display: flex !important;
+    flex: 1;
+    align-self: center;
+    justify-self: flex-start;
+
+    padding-left: 10px;
+
+    color: #6d6d6d !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 18px !important;
+}
+
+.elementToggled {
+    color:rgb(143, 39, 228);
 }
