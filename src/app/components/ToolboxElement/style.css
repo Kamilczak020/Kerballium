@@ -28,6 +28,10 @@
     transition-duration: 0s !important;
 }
 
+.iconWrapperToggled {
+    color:rgb(143, 39, 228);
+}
+
 .toolboxElement:hover {
     color:rgb(143, 39, 228);
     position: relative;
