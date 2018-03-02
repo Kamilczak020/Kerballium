@@ -19,7 +19,9 @@ export class KerballiumApp extends React.Component {
                         <Button />
                     </div>
                     <SideToolbar />
-                    <SideDrawer />
+                    <SideDrawer>
+                        <Button />
+                    </SideDrawer>
                 </div>
                 <Footer />
             </div>
