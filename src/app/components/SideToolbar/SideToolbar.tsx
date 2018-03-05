@@ -5,6 +5,7 @@ import { Drawer, Divider, IconButton, Toolbar } from 'material-ui';
 import { ToolboxElement } from '../ToolboxElement/ToolboxElement';
 import { SatelliteIcon, RocketIcon, PlanetIcon } from '../../components/icons';
 import { inject, observer } from 'mobx-react';
+import { ApplicationMode } from '../../models';
 import { STORE_INFORMATION_PLANET, STORE_PLANNER_SATELLITE, STORE_PLANNER_TRIP } from '../../constants/stores';
 import { PlanetInformationStore, SatellitePlannerStore, TripPlannerStore } from '../../stores';
 
@@ -21,21 +22,21 @@ export class SideToolbar extends React.Component {
                 <ToolboxElement
                     className={style.toolboxElement}
                     text='Satellite Planner'
-                    store={satellitePlannerStore}>
+                    mode={ApplicationMode.SatellitePlannerMode}>
                         <SatelliteIcon className={style.toolbarIcon} />
                 </ToolboxElement>
                 <Divider className={style.divider}/>
                 <ToolboxElement
                     className={style.toolboxElement}
                     text='Trip Planner'
-                    store={tripPlannerStore}>
+                    mode={ApplicationMode.TripPlannerMode}>
                         <RocketIcon className={style.toolbarIcon} />
                 </ToolboxElement>
                 <Divider className={style.divider}/>
                 <ToolboxElement
                     className={style.toolboxElement}
                     text='Planet Information'
-                    store={planetInfoStore}>
+                    mode={ApplicationMode.PlanetInformationMode}>
                         <PlanetIcon className={style.toolbarIcon} />
                 </ToolboxElement>
                 <Divider className={style.divider}/>
