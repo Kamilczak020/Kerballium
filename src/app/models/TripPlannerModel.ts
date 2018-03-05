@@ -1,11 +1,6 @@
 import { observable } from 'mobx';
-import { IPlannerModel } from './IPlannerModel';
+import { IDataModel } from './IPlannerModel';
 
-export class TripPlannerModel implements IPlannerModel {
-    @observable
-    public isActive: boolean;
+export class TripPlannerModel implements IDataModel {
 
-    constructor() {
-        this.isActive = false;
-    }
 }

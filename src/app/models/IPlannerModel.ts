@@ -1,3 +1,2 @@
-export interface IPlannerModel {
-    isActive: boolean;
+export interface IDataModel {
 }
