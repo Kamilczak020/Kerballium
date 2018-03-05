@@ -23,7 +23,7 @@ const satellitePlannerStore = new SatellitePlannerStore(new SatellitePlannerMode
 const planetInfoStore = new PlanetInformationStore(new PlanetInformationModel());
 const tripPlannerStore = new TripPlannerStore(new TripPlannerModel());
 
-const uiStore = new UIStore(new UIModel(), [satellitePlannerStore, planetInfoStore, tripPlannerStore]);
+const uiStore = new UIStore(new UIModel());
 
 const rootStores = {
     [STORE_PLANNER_SATELLITE]: satellitePlannerStore,
