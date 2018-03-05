@@ -1,6 +1,5 @@
-import { IPlannerModel } from '../models';
+import { IDataModel } from '../models';
 
-export interface IPlannerStore {
-    state: IPlannerModel;
-    type: string;
+export interface IDataStore {
+    state: IDataModel;
 }
