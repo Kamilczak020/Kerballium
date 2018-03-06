@@ -1,16 +1,15 @@
 import * as React from 'react';
 import * as THREE from 'three';
 import * as style from './style.css';
-import sizeMe from 'react-sizeme';
+import { sizeable } from '../../Utility/Sizeable/Sizeable';
 
 export interface GalaxyDisplayProps {
     size: any;
 }
 
+@sizeable
 class GalaxyDisplay extends React.Component<GalaxyDisplayProps> {
-    private dievRef;
-
-    public render() {
+    public render(): React.ReactNode {
         console.log(this.props.size);
 
         return (
@@ -20,8 +19,3 @@ class GalaxyDisplay extends React.Component<GalaxyDisplayProps> {
         );
     }
 }
-
-const config = { monitorHeight: true, monitorWidth: true };
-const sizeMeHOC = sizeMe(config);
-
-export default sizeMeHOC(GalaxyDisplay);
