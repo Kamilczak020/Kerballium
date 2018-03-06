@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { RouterStore } from '../../stores';
 import { STORE_ROUTER } from '../../constants/stores';
 import { Header, Footer, SideToolbar, SideDrawer, DrawerContentProvider } from '../../components';
-import GalaxyDisplay from '../../components/GalaxyDisplay/GalaxyDisplay';
+import { GalaxyDisplay } from '../../components';
 import { Button } from 'material-ui';
 
 @inject(STORE_ROUTER)
