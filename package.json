@@ -52,6 +52,7 @@
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-sizeme": "^2.3.6",
+    "resize-observer-polyfill": "^1.5.0",
     "three": "^0.90.0"
   }
 }
