@@ -16,9 +16,7 @@ export class KerballiumApp extends React.Component {
             <div className={style.appContainer}>
                 <Header />
                 <div className={style.appContent}>
-                    <div className={style.placeholder}>
-                        <GalaxyDisplay />
-                    </div>
+                    <GalaxyDisplay />
                     <SideToolbar />
                     <SideDrawer>
                         <DrawerContentProvider />
