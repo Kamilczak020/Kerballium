@@ -1,3 +1,8 @@
-.galaxyDisplayContainer {
-    height: 100%;
+.canvasWrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.canvas3d {
+    display: block;
 }

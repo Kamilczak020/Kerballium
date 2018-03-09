@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as THREE from 'three';
 import * as style from './style.css';
 import { sizeable } from '../../Utility/Sizeable/Sizeable';
+import { Scene } from './Scene';
 
 export interface GalaxyDisplayProps {
     displayName?: string;
@@ -9,15 +9,14 @@ export interface GalaxyDisplayProps {
     componentWidth?: number;
 }
 
+export interface GalaxyDisplayState {
 
-@sizeable
-export class GalaxyDisplay extends React.Component<GalaxyDisplayProps> {
+}
+
+export class GalaxyDisplay extends React.Component<GalaxyDisplayProps, GalaxyDisplayState> {
     public render(): React.ReactNode {
-        console.log(this.props.componentWidth);
         return (
-            <div className={style.galaxyDisplayContainer}>
-                {this.props.children}
-            </div>
+            <Scene />
         );
     }
 }
