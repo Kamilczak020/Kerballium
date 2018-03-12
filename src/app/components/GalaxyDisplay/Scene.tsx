@@ -91,7 +91,7 @@ export class Scene extends React.Component<SceneProps, SceneState> {
                     this.camera.position.x += deltaX * 0.01;
                     this.camera.position.y += deltaY * 0.01;
                 }
-            }
+        }
     }
 
     public componentWillUnmount?() {
