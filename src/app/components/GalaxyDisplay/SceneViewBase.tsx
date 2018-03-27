@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as THREE from 'three';
 import * as style from './style.css';
 import { sizeable } from '../../Utility/Sizeable/Sizeable';
-import { SceneControllerBase, ISceneController } from './SceneController';
+import { SceneControllerBase, ISceneController } from './SceneControllerBase';
 
 export interface SceneViewBaseProps {
     // Props injected by decorator
@@ -19,18 +19,11 @@ export interface SceneViewBaseState {
 
 export abstract class SceneViewBase<BaseProps extends SceneViewBaseProps,
     BaseState extends SceneViewBaseState> extends React.Component<BaseProps, BaseState> {
-    private sceneController?: ISceneController;
-    private canvas?: HTMLCanvasElement;
+    protected sceneController?: ISceneController;
+    protected canvas?: HTMLCanvasElement;
 
     constructor(props: BaseProps, context: BaseState) {
         super(props, context);
-
-        this.setState({
-            isPrimaryDrag: false,
-            isSecondaryDrag: false,
-            mousePosX: undefined,
-            mousePosY: undefined,
-        });
     }
 
     public componentDidUpdate?(prevProps: BaseProps, prevState: BaseState, prevContext: any) {
@@ -45,7 +38,7 @@ export abstract class SceneViewBase<BaseProps extends SceneViewBaseProps,
             this.state.mousePosY !== prevState.mousePosY) {
             // Only run during drag, and skip instances where we start / stop dragging inside canvas.
             // On primary mouse button drag, pan camera.
-            if (this.state.isPrimaryDrag === prevState.isPrimaryDrag && this.state.isPrimaryDrag) {
+            if ((this.state.isPrimaryDrag === prevState.isPrimaryDrag) && this.state.isPrimaryDrag) {
                 this.sceneController.panCamera(
                     prevState.mousePosX,
                     this.state.mousePosX,
@@ -54,7 +47,7 @@ export abstract class SceneViewBase<BaseProps extends SceneViewBaseProps,
                 );
             }
             // On Secondary mouse button drag, rotate camera.
-            if (this.state.isSecondaryDrag === prevState.isSecondaryDrag && this.state.isSecondaryDrag) {
+            if ((this.state.isSecondaryDrag === prevState.isSecondaryDrag) && this.state.isSecondaryDrag) {
                 this.sceneController.rotateCamera(
                     prevState.mousePosX,
                     this.state.mousePosX,
@@ -73,6 +66,8 @@ export abstract class SceneViewBase<BaseProps extends SceneViewBaseProps,
         if (e.button === 0) {
             this.setState({
                 isPrimaryDrag: true,
+                mousePosX: e.clientX,
+                mousePosY: e.clientY,
             });
         }
 
@@ -90,13 +85,13 @@ export abstract class SceneViewBase<BaseProps extends SceneViewBaseProps,
     public handleMouseUp?(e: React.MouseEvent<HTMLDivElement>) {
         if (e.button === 0) {
             this.setState({
-                isPrimaryDrag: true,
+                isPrimaryDrag: false,
             });
         }
 
         if (e.button === 2) {
             this.setState({
-                isSecondaryDrag: true,
+                isSecondaryDrag: false,
             });
         }
     }
