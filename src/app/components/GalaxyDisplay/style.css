@@ -5,4 +5,5 @@
 
 .canvas3d {
     display: block;
+    user-select: none;
 }
